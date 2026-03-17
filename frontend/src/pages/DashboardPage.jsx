@@ -78,8 +78,8 @@ const DashboardPage = ({ setPage, sales = [], products = [], customers = [] }) =
   return (
     <div style={{ padding:24 }}>
       <div style={{ marginBottom:24 }}>
-        <h2 style={{ fontFamily:"'Playfair Display',serif", fontSize:26, color:'#E8DCC8', marginBottom:4 }}>Business Overview</h2>
-        <p style={{ color:'#6B5E4A', fontSize:13 }}>Live data — updates as you add products, sales and customers.</p>
+        <h2 style={{ fontFamily:"'Playfair Display',serif", fontSize:26, color:'#111827', marginBottom:4 }}>Business Overview</h2>
+        <p style={{ color:'#6B7280', fontSize:13 }}>Live data — updates as you add products, sales and customers.</p>
       </div>
 
       {/* ── Live Stat Cards ── */}
@@ -121,8 +121,8 @@ const DashboardPage = ({ setPage, sales = [], products = [], customers = [] }) =
         <div className="stat-card fade-up" style={{ borderRadius:16, padding:24, animationDelay:'100ms', animationFillMode:'both' }}>
           <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:20 }}>
             <div>
-              <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:17, color:'#E8DCC8', marginBottom:2 }}>Sales Overview</h3>
-              <p style={{ fontSize:11, color:'#6B5E4A' }}>Monthly revenue from live sales data</p>
+              <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:17, color:'#111827', marginBottom:2 }}>Sales Overview</h3>
+              <p style={{ fontSize:11, color:'#6B7280' }}>Monthly revenue from live sales data</p>
             </div>
             <div style={{ display:'flex', gap:8 }}>
               {['bar','line'].map(t => (
@@ -138,29 +138,29 @@ const DashboardPage = ({ setPage, sales = [], products = [], customers = [] }) =
               <BarChart data={monthlySalesChart}>
                 <defs>
                   <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#D4A853"/>
-                    <stop offset="100%" stopColor="#C8965E" stopOpacity={0.7}/>
+                    <stop offset="0%" stopColor="#8B4513"/>
+                    <stop offset="100%" stopColor="#A0522D" stopOpacity={0.7}/>
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1E1C17" />
-                <XAxis dataKey="month" stroke="#6B5E4A" fontSize={12} />
-                <YAxis stroke="#6B5E4A" fontSize={11} tickFormatter={v => v>=1000?`${(v/1000).toFixed(0)}K`:v} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                <XAxis dataKey="month" stroke="#6B7280" fontSize={12} />
+                <YAxis stroke="#6B7280" fontSize={11} tickFormatter={v => v>=1000?`${(v/1000).toFixed(0)}K`:v} />
                 <Tooltip
-                  contentStyle={{ background:'#1A1814', border:'1px solid #2A2418', borderRadius:8, color:'#E8DCC8' }}
+                  contentStyle={{ background:'#FFFFFF', border:'1px solid #E5E7EB', borderRadius:8, color:'#111827', boxShadow:'0 4px 6px -1px rgba(0,0,0,0.1)' }}
                   formatter={v => [`₹${v.toLocaleString()}`, 'Revenue']}
                 />
                 <Bar dataKey="sales" fill="url(#goldGrad)" radius={[4,4,0,0]} />
               </BarChart>
             ) : (
               <LineChart data={monthlySalesChart}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1E1C17" />
-                <XAxis dataKey="month" stroke="#6B5E4A" fontSize={12} />
-                <YAxis stroke="#6B5E4A" fontSize={11} tickFormatter={v => v>=1000?`${(v/1000).toFixed(0)}K`:v} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                <XAxis dataKey="month" stroke="#6B7280" fontSize={12} />
+                <YAxis stroke="#6B7280" fontSize={11} tickFormatter={v => v>=1000?`${(v/1000).toFixed(0)}K`:v} />
                 <Tooltip
-                  contentStyle={{ background:'#1A1814', border:'1px solid #2A2418', borderRadius:8, color:'#E8DCC8' }}
+                  contentStyle={{ background:'#FFFFFF', border:'1px solid #E5E7EB', borderRadius:8, color:'#111827', boxShadow:'0 4px 6px -1px rgba(0,0,0,0.1)' }}
                   formatter={v => [`₹${v.toLocaleString()}`, 'Revenue']}
                 />
-                <Line type="monotone" dataKey="sales" stroke="#D4A853" strokeWidth={2.5} dot={{ fill:'#D4A853', r:4 }} />
+                <Line type="monotone" dataKey="sales" stroke="#8B4513" strokeWidth={2.5} dot={{ fill:'#8B4513', r:4 }} />
               </LineChart>
             )}
           </ResponsiveContainer>
@@ -169,8 +169,8 @@ const DashboardPage = ({ setPage, sales = [], products = [], customers = [] }) =
         {/* Top Products Pie */}
         <div className="stat-card fade-up" style={{ borderRadius:16, padding:24, animationDelay:'200ms', animationFillMode:'both' }}>
           <div style={{ marginBottom:16 }}>
-            <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:17, color:'#E8DCC8', marginBottom:2 }}>Top Products</h3>
-            <p style={{ fontSize:11, color:'#6B5E4A' }}>By units sold</p>
+            <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:17, color:'#111827', marginBottom:2 }}>Top Products</h3>
+            <p style={{ fontSize:11, color:'#6B7280' }}>By units sold</p>
           </div>
           {topSellingProducts.length > 0 ? (
             <>
@@ -180,25 +180,25 @@ const DashboardPage = ({ setPage, sales = [], products = [], customers = [] }) =
                     {topSellingProducts.map((_,i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
                   </Pie>
                   <Tooltip
-                    contentStyle={{ background:'#1A1814', border:'1px solid #2A2418', borderRadius:8, color:'#E8DCC8' }}
+                    contentStyle={{ background:'#FFFFFF', border:'1px solid #E5E7EB', borderRadius:8, color:'#111827', boxShadow:'0 4px 6px -1px rgba(0,0,0,0.1)' }}
                     formatter={v => [`${v} units`, 'Sold']}
                   />
                 </PieChart>
               </ResponsiveContainer>
               <div style={{ display:'flex', flexDirection:'column', gap:6, marginTop:12 }}>
                 {topSellingProducts.slice(0,4).map((p,i) => (
-                  <div key={p.name} style={{ display:'flex', justifyContent:'space-between', fontSize:12, color:'#8A7A60' }}>
+                  <div key={p.name} style={{ display:'flex', justifyContent:'space-between', fontSize:12, color:'#6B7280' }}>
                     <div style={{ display:'flex', alignItems:'center', gap:6 }}>
                       <div style={{ width:8, height:8, borderRadius:'50%', background:PIE_COLORS[i % PIE_COLORS.length], flexShrink:0 }} />
                       <span style={{ overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap', maxWidth:100 }}>{p.name}</span>
                     </div>
-                    <span style={{ color:'#D4A853', fontWeight:600 }}>{p.sales}</span>
+                    <span style={{ color:'#8B4513', fontWeight:600 }}>{p.sales}</span>
                   </div>
                 ))}
               </div>
             </>
           ) : (
-            <div style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', height:180, color:'#4A3E2C' }}>
+            <div style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', height:180, color:'#9CA3AF' }}>
               <div style={{ fontSize:36, marginBottom:8 }}>📊</div>
               <p style={{ fontSize:12 }}>No sales data yet</p>
             </div>
@@ -212,7 +212,7 @@ const DashboardPage = ({ setPage, sales = [], products = [], customers = [] }) =
         {/* Recent Sales */}
         <div className="stat-card fade-up" style={{ borderRadius:16, padding:24, animationDelay:'300ms', animationFillMode:'both' }}>
           <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:16 }}>
-            <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:17, color:'#E8DCC8' }}>Recent Sales</h3>
+            <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:17, color:'#111827' }}>Recent Sales</h3>
             <button className="btn-outline" onClick={() => setPage('sales')} style={{ padding:'6px 14px', borderRadius:6, fontSize:12 }}>View All</button>
           </div>
           {recentSales.length > 0 ? (
@@ -221,7 +221,7 @@ const DashboardPage = ({ setPage, sales = [], products = [], customers = [] }) =
               <tbody>
                 {recentSales.map(s => (
                   <tr key={s.id}>
-                    <td style={{ color:'#D4A853' }}>{s.id}</td>
+                    <td style={{ color:'#8B4513' }}>{s.id}</td>
                     <td>{s.customer}</td>
                     <td style={{ maxWidth:120, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{s.product}</td>
                     <td style={{ color:'#22C55E', fontWeight:600 }}>₹{s.totalAmt}</td>
@@ -237,7 +237,7 @@ const DashboardPage = ({ setPage, sales = [], products = [], customers = [] }) =
               </tbody>
             </table>
           ) : (
-            <div style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', height:120, color:'#4A3E2C' }}>
+            <div style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', height:120, color:'#9CA3AF' }}>
               <p style={{ fontSize:14 }}>No sales recorded yet.</p>
               <button className="btn-gold" onClick={() => setPage('sales')} style={{ marginTop:12, padding:'8px 18px', borderRadius:8, fontSize:13 }}>Create First Sale</button>
             </div>
@@ -246,7 +246,7 @@ const DashboardPage = ({ setPage, sales = [], products = [], customers = [] }) =
 
         {/* Quick Actions + Top Sellers */}
         <div className="stat-card fade-up" style={{ borderRadius:16, padding:24, animationDelay:'400ms', animationFillMode:'both' }}>
-          <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:17, color:'#E8DCC8', marginBottom:16 }}>Quick Actions</h3>
+          <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:17, color:'#111827', marginBottom:16 }}>Quick Actions</h3>
           <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:24 }}>
             {[
               { label:'Add New Product',  icon:<IcoPlus/>,   pg:'products' },
@@ -255,26 +255,26 @@ const DashboardPage = ({ setPage, sales = [], products = [], customers = [] }) =
               { label:'Manage Customers', icon:<IcoCust/>,   pg:'customers' },
             ].map(a => (
               <button key={a.label} onClick={() => setPage(a.pg)}
-                style={{ display:'flex', alignItems:'center', gap:12, background:'rgba(212,168,83,.06)', border:'1px solid rgba(212,168,83,.15)', borderRadius:10, padding:'12px 16px', cursor:'pointer', color:'#C8B898', fontSize:13, fontFamily:"'Outfit',sans-serif", transition:'all .3s' }}
-                onMouseEnter={e => { e.currentTarget.style.background='rgba(212,168,83,.14)'; e.currentTarget.style.color='#D4A853' }}
-                onMouseLeave={e => { e.currentTarget.style.background='rgba(212,168,83,.06)'; e.currentTarget.style.color='#C8B898' }}>
-                <span style={{ color:'#D4A853' }}>{a.icon}</span>
+                style={{ display:'flex', alignItems:'center', gap:12, background:'rgba(139,69,19,.05)', border:'1px solid rgba(139,69,19,.15)', borderRadius:10, padding:'12px 16px', cursor:'pointer', color:'#374151', fontSize:13, fontFamily:"'Outfit',sans-serif", transition:'all .3s' }}
+                onMouseEnter={e => { e.currentTarget.style.background='rgba(139,69,19,.1)'; e.currentTarget.style.color='#8B4513' }}
+                onMouseLeave={e => { e.currentTarget.style.background='rgba(139,69,19,.05)'; e.currentTarget.style.color='#374151' }}>
+                <span style={{ color:'#8B4513' }}>{a.icon}</span>
                 {a.label}
               </button>
             ))}
           </div>
 
-          <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:15, color:'#E8DCC8', marginBottom:12 }}>Top Sellers</h3>
+          <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:15, color:'#111827', marginBottom:12 }}>Top Sellers</h3>
           {topSellingProducts.length > 0 ? topSellingProducts.slice(0,3).map((p,i) => (
-            <div key={p.name} style={{ display:'flex', justifyContent:'space-between', alignItems:'center', padding:'7px 0', borderBottom:i<2?'1px solid rgba(42,36,24,.5)':'none' }}>
+            <div key={p.name} style={{ display:'flex', justifyContent:'space-between', alignItems:'center', padding:'7px 0', borderBottom:i<2?'1px solid #E5E7EB':'none' }}>
               <div style={{ display:'flex', alignItems:'center', gap:8 }}>
-                <span style={{ fontSize:13, fontWeight:700, color:'#D4A853' }}>#{i+1}</span>
-                <span style={{ fontSize:12, color:'#C8B898', maxWidth:110, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{p.name}</span>
+                <span style={{ fontSize:13, fontWeight:700, color:'#8B4513' }}>#{i+1}</span>
+                <span style={{ fontSize:12, color:'#4B5563', maxWidth:110, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{p.name}</span>
               </div>
-              <span style={{ fontSize:11, color:'#8A7A60' }}>{p.sales} units</span>
+              <span style={{ fontSize:11, color:'#6B7280' }}>{p.sales} units</span>
             </div>
           )) : (
-            <p style={{ fontSize:12, color:'#4A3E2C' }}>No sales yet to rank.</p>
+            <p style={{ fontSize:12, color:'#9CA3AF' }}>No sales yet to rank.</p>
           )}
         </div>
       </div>

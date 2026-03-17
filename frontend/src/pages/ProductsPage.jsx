@@ -7,8 +7,8 @@ const sel = { padding:'10px 14px', borderRadius:8, fontSize:13, width:'100%', ap
 
 const Field = ({ label, required, children, error }) => (
   <div style={{ display:'flex', flexDirection:'column', gap:5 }}>
-    <label style={{ fontSize:12, color:'#8A7A60', fontWeight:500 }}>
-      {label}{required && <span style={{ color:'#D4A853', marginLeft:3 }}>*</span>}
+    <label style={{ fontSize:12, color:'rgba(17, 24, 39, 0.7)', fontWeight:500 }}>
+      {label}{required && <span style={{ color:'#8B4513', marginLeft:3 }}>*</span>}
     </label>
     {children}
     {error && <span style={{ fontSize:11, color:'#EF4444' }}>{error}</span>}
@@ -16,7 +16,7 @@ const Field = ({ label, required, children, error }) => (
 )
 
 const SectionTitle = ({ icon, title }) => (
-  <p style={{ fontSize:11, color:'#D4A853', fontWeight:700, textTransform:'uppercase', letterSpacing:'.1em', marginBottom:14, paddingBottom:8, borderBottom:'1px solid rgba(212,168,83,.15)' }}>
+  <p style={{ fontSize:11, color:'#8B4513', fontWeight:700, textTransform:'uppercase', letterSpacing:'.1em', marginBottom:14, paddingBottom:8, borderBottom:'1px solid rgba(139,69,19,.1)' }}>
     {icon} {title}
   </p>
 )
@@ -87,8 +87,8 @@ const ProductFormModal = ({ open, onClose, onSave, initial }) => {
           </div>
           {(form.price||form.wholesalePrice) && (
             <div style={{ display:'flex', gap:12, marginTop:12 }}>
-              {form.price && <div style={{ flex:1, background:'rgba(212,168,83,.07)', border:'1px solid rgba(212,168,83,.2)', borderRadius:10, padding:'10px 16px', display:'flex', justifyContent:'space-between', alignItems:'center' }}><span style={{ fontSize:12, color:'#8A7A60' }}>Single Preview</span><span style={{ fontSize:18, fontWeight:700, color:'#D4A853', fontFamily:"'Playfair Display',serif" }}>₹{parseFloat(form.price||0).toFixed(2)}</span></div>}
-              {form.wholesalePrice && <div style={{ flex:1, background:'rgba(34,197,94,.07)', border:'1px solid rgba(34,197,94,.2)', borderRadius:10, padding:'10px 16px', display:'flex', justifyContent:'space-between', alignItems:'center' }}><span style={{ fontSize:12, color:'#8A7A60' }}>Wholesale Preview</span><span style={{ fontSize:18, fontWeight:700, color:'#22C55E', fontFamily:"'Playfair Display',serif" }}>₹{parseFloat(form.wholesalePrice||0).toFixed(2)}</span></div>}
+              {form.price && <div style={{ flex:1, background:'rgba(139,69,19,.05)', border:'1px solid rgba(139,69,19,.15)', borderRadius:10, padding:'10px 16px', display:'flex', justifyContent:'space-between', alignItems:'center' }}><span style={{ fontSize:12, color:'#6B7280' }}>Single Preview</span><span style={{ fontSize:18, fontWeight:700, color:'#8B4513', fontFamily:"'Playfair Display',serif" }}>₹{parseFloat(form.price||0).toFixed(2)}</span></div>}
+              {form.wholesalePrice && <div style={{ flex:1, background:'rgba(34,197,94,.05)', border:'1px solid rgba(34,197,94,.2)', borderRadius:10, padding:'10px 16px', display:'flex', justifyContent:'space-between', alignItems:'center' }}><span style={{ fontSize:12, color:'#6B7280' }}>Wholesale Preview</span><span style={{ fontSize:18, fontWeight:700, color:'#22C55E', fontFamily:"'Playfair Display',serif" }}>₹{parseFloat(form.wholesalePrice||0).toFixed(2)}</span></div>}
             </div>
           )}
         </div>
@@ -98,15 +98,15 @@ const ProductFormModal = ({ open, onClose, onSave, initial }) => {
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:16, alignItems:'start' }}>
             <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
               <Field label="Image URL"><input className="input-royal" style={inp} placeholder="https://..." value={form.image&&form.image.startsWith('http')?form.image:''} onChange={e=>{set('image',e.target.value);setPreview(e.target.value)}} /></Field>
-              <div style={{ textAlign:'center', color:'#4A3E2C', fontSize:11 }}>— OR UPLOAD —</div>
-              <label style={{ display:'flex', alignItems:'center', gap:10, background:'rgba(212,168,83,.06)', border:'2px dashed rgba(212,168,83,.3)', borderRadius:8, padding:'12px 14px', cursor:'pointer', color:'#D4A853', fontSize:13, fontWeight:500 }}>
+              <div style={{ textAlign:'center', color:'#9CA3AF', fontSize:11 }}>— OR UPLOAD —</div>
+              <label style={{ display:'flex', alignItems:'center', gap:10, background:'rgba(139,69,19,.05)', border:'2px dashed rgba(139,69,19,.2)', borderRadius:8, padding:'12px 14px', cursor:'pointer', color:'#8B4513', fontSize:13, fontWeight:500 }}>
                 <span style={{ fontSize:20 }}>📁</span> Choose Image File
                 <input type="file" accept="image/*" onChange={handleFile} style={{ display:'none' }} />
               </label>
             </div>
-            <div style={{ background:'#141210', borderRadius:12, overflow:'hidden', border:'1px solid #2A2418', height:160, display:'flex', alignItems:'center', justifyContent:'center' }}>
-              {preview ? <img src={preview} alt="Preview" style={{ width:'100%', height:'100%', objectFit:'cover' }} onError={e=>{e.target.src='https://placehold.co/400x300/1A1814/D4A853?text=Invalid'}} />
-                : <div style={{ textAlign:'center', color:'#4A3E2C' }}><div style={{ fontSize:36, marginBottom:6 }}>🏷️</div><p style={{ fontSize:11 }}>Preview here</p></div>}
+            <div style={{ background:'#F9FAFB', borderRadius:12, overflow:'hidden', border:'1px solid #E5E7EB', height:160, display:'flex', alignItems:'center', justifyContent:'center' }}>
+              {preview ? <img src={preview} alt="Preview" style={{ width:'100%', height:'100%', objectFit:'cover' }} onError={e=>{e.target.src='https://placehold.co/400x300/F9FAFB/D4A853?text=Invalid'}} />
+                : <div style={{ textAlign:'center', color:'#9CA3AF' }}><div style={{ fontSize:36, marginBottom:6 }}>🏷️</div><p style={{ fontSize:11 }}>Preview here</p></div>}
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@ const ProductFormModal = ({ open, onClose, onSave, initial }) => {
           </Field>
         </div>
 
-        <div style={{ display:'flex', gap:12, paddingTop:8, borderTop:'1px solid rgba(42,36,24,.5)' }}>
+        <div style={{ display:'flex', gap:12, paddingTop:8, borderTop:'1px solid #E5E7EB' }}>
           <button className="btn-outline" onClick={handleClose} style={{ flex:1, padding:'12px', borderRadius:10, fontSize:14 }}>Cancel</button>
           <button className="btn-gold" onClick={handleSave} style={{ flex:2, padding:'12px', borderRadius:10, fontSize:15, display:'flex', alignItems:'center', justifyContent:'center', gap:8 }}>
             <IcoPlus size={16}/> {isEdit?'Save Changes':'Add Product'}
@@ -184,15 +184,15 @@ const ProductsPage = ({ setCart, products, setProducts }) => {
   return (
     <div style={{ padding:24 }}>
       {toast && (
-        <div className="scale-in" style={{ position:'fixed', top:80, right:24, background:'linear-gradient(135deg,#D4A853,#C8965E)', color:'#0F0E0C', padding:'12px 20px', borderRadius:10, fontWeight:600, fontSize:14, zIndex:9999, boxShadow:'0 8px 24px rgba(212,168,83,.4)' }}>
+        <div className="scale-in" style={{ position:'fixed', top:80, right:24, background:'linear-gradient(135deg,#8B4513,#A0522D)', color:'#FFFFFF', padding:'12px 20px', borderRadius:10, fontWeight:600, fontSize:14, zIndex:9999, boxShadow:'0 8px 24px rgba(139,69,19,.4)' }}>
           {toast}
         </div>
       )}
 
       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:24 }}>
         <div>
-          <h2 style={{ fontFamily:"'Playfair Display',serif", fontSize:26, color:'#E8DCC8', marginBottom:4 }}>Product Catalog</h2>
-          <p style={{ color:'#6B5E4A', fontSize:13 }}>{filtered.length} of {products.length} products</p>
+          <h2 style={{ fontFamily:"'Playfair Display',serif", fontSize:26, color:'#111827', marginBottom:4 }}>Product Catalog</h2>
+          <p style={{ color:'#6B7280', fontSize:13 }}>{filtered.length} of {products.length} products</p>
         </div>
         <button className="btn-gold" onClick={()=>setShowAdd(true)} style={{ padding:'10px 22px', borderRadius:10, fontSize:14, display:'flex', alignItems:'center', gap:8 }}>
           <IcoPlus size={16}/> Add New Product
@@ -202,7 +202,7 @@ const ProductsPage = ({ setCart, products, setProducts }) => {
       <div style={{ display:'flex', gap:12, marginBottom:24, flexWrap:'wrap' }}>
         <div style={{ position:'relative', flex:1, minWidth:200 }}>
           <input className="input-royal" placeholder="Search products or shop..." value={search} onChange={e=>{setSearch(e.target.value);setPage(1)}} style={{ padding:'10px 12px 10px 38px', borderRadius:10, fontSize:13, width:'100%' }} />
-          <span style={{ position:'absolute', left:10, top:'50%', transform:'translateY(-50%)', color:'#6B5E4A' }}><IcoSearch size={16}/></span>
+          <span style={{ position:'absolute', left:10, top:'50%', transform:'translateY(-50%)', color:'#6B7280' }}><IcoSearch size={16}/></span>
         </div>
         <select className="input-royal" value={filter.material} onChange={e=>{setFilter({...filter,material:e.target.value});setPage(1)}} style={{ padding:'10px 14px', borderRadius:10, fontSize:13, minWidth:130 }}>
           <option value="">Material</option>{['Ceramic','Vitrified','Porcelain','Natural Stone','Marble','Granite','Mosaic'].map(o=><option key={o}>{o}</option>)}
@@ -215,25 +215,25 @@ const ProductsPage = ({ setCart, products, setProducts }) => {
         </select>
       </div>
 
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:20, marginBottom:24 }}>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(280px, 1fr))', gap:24, marginBottom:32 }}>
         {shown.map((p,i)=>(
-          <div key={p.id} className="tile-card card-hover fade-up" style={{ borderRadius:16, overflow:'hidden', animationDelay:`${i*60}ms`, animationFillMode:'both' }}>
+          <div key={p.id} className="tile-card card-hover pop-in" style={{ borderRadius:20, overflow:'hidden', animationDelay:`${i*80}ms`, animationFillMode:'both' }}>
             <div style={{ position:'relative' }}>
-              <img src={p.image} alt={p.name} style={{ width:'100%', height:180, objectFit:'cover' }} onError={e=>{e.target.src='https://placehold.co/400x300/1A1814/D4A853?text=Tile'}} />
+              <img src={p.image} alt={p.name} style={{ width:'100%', height:180, objectFit:'cover' }} onError={e=>{e.target.src='https://placehold.co/400x300/F9FAFB/D4A853?text=Tile'}} />
               <div style={{ position:'absolute', top:10, left:10 }}><span className={`badge-stock ${p.inStock?'badge-in':'badge-out'}`}>{p.inStock?'● In Stock':'● Out of Stock'}</span></div>
-              <button onClick={()=>toggleWishlist(p.id)} style={{ position:'absolute', top:10, right:10, background:'rgba(15,14,12,.75)', border:'none', borderRadius:'50%', width:30, height:30, cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center', color:wishlist.includes(p.id)?'#EF4444':'#8A7A60' }}><IcoHeart size={13}/></button>
+              <button onClick={()=>toggleWishlist(p.id)} style={{ position:'absolute', top:10, right:10, background:'rgba(255,255,255,.9)', border:'1px solid #E5E7EB', borderRadius:'50%', width:30, height:30, cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center', color:wishlist.includes(p.id)?'#EF4444':'#9CA3AF' }}><IcoHeart size={13}/></button>
             </div>
             <div style={{ padding:16 }}>
-              <p style={{ fontSize:11, color:'#D4A853', letterSpacing:'.08em', marginBottom:4 }}>{p.shop}</p>
-              <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:15, color:'#E8DCC8', marginBottom:8 }}>{p.name}</h3>
+              <p style={{ fontSize:11, color:'#8B4513', letterSpacing:'.08em', marginBottom:4 }}>{p.shop}</p>
+              <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:15, color:'#111827', marginBottom:8 }}>{p.name}</h3>
               <div style={{ display:'flex', gap:6, flexWrap:'wrap', marginBottom:10 }}>
-                {[p.size, p.material, p.category].map(tag=><span key={tag} style={{ background:'rgba(212,168,83,.1)', color:'#D4A853', fontSize:10, padding:'2px 8px', borderRadius:4, fontWeight:500 }}>{tag}</span>)}
+                {[p.size, p.material, p.category].map(tag=><span key={tag} style={{ background:'rgba(139,69,19,.05)', border:'1px solid rgba(139,69,19,.15)', color:'#8B4513', fontSize:10, padding:'2px 8px', borderRadius:4, fontWeight:500 }}>{tag}</span>)}
               </div>
-              <p style={{ fontSize:11, color:'#6B5E4A', lineHeight:1.5, marginBottom:10 }}>{(p.description||'').slice(0,70)}...</p>
-              <div style={{ display:'flex', alignItems:'center', gap:6, marginBottom:12 }}><StarRating rating={p.rating}/><span style={{ fontSize:11, color:'#8A7A60' }}>{p.rating} ({p.reviews})</span></div>
-              <div style={{ background:'rgba(212,168,83,.05)', borderRadius:8, padding:10, marginBottom:12, border:'1px solid rgba(212,168,83,.1)' }}>
-                <div style={{ display:'flex', justifyContent:'space-between', marginBottom:4 }}><span style={{ fontSize:11, color:'#8A7A60' }}>Single</span><span style={{ fontSize:14, fontWeight:700, color:'#D4A853' }}>₹{p.price}</span></div>
-                <div style={{ display:'flex', justifyContent:'space-between' }}><span style={{ fontSize:11, color:'#8A7A60' }}>Wholesale</span><span style={{ fontSize:14, fontWeight:700, color:'#22C55E' }}>₹{p.wholesalePrice}</span></div>
+              <p style={{ fontSize:11, color:'#6B7280', lineHeight:1.5, marginBottom:10 }}>{(p.description||'').slice(0,70)}...</p>
+              <div style={{ display:'flex', alignItems:'center', gap:6, marginBottom:12 }}><StarRating rating={p.rating}/><span style={{ fontSize:11, color:'#6B7280' }}>{p.rating} ({p.reviews})</span></div>
+              <div style={{ background:'rgba(139,69,19,.03)', borderRadius:8, padding:10, marginBottom:12, border:'1px solid rgba(139,69,19,.1)' }}>
+                <div style={{ display:'flex', justifyContent:'space-between', marginBottom:4 }}><span style={{ fontSize:11, color:'#6B7280' }}>Single</span><span style={{ fontSize:14, fontWeight:700, color:'#8B4513' }}>₹{p.price}</span></div>
+                <div style={{ display:'flex', justifyContent:'space-between' }}><span style={{ fontSize:11, color:'#6B7280' }}>Wholesale</span><span style={{ fontSize:14, fontWeight:700, color:'#22C55E' }}>₹{p.wholesalePrice}</span></div>
               </div>
               <div style={{ display:'flex', flexDirection:'column', gap:6 }}>
                 <div style={{ display:'flex', gap:6 }}>
@@ -242,7 +242,7 @@ const ProductsPage = ({ setCart, products, setProducts }) => {
                 </div>
                 <div style={{ display:'flex', gap:6 }}>
                   <button className="btn-outline" onClick={()=>setViewProduct(p)} style={{ flex:2, padding:'6px', borderRadius:8, fontSize:11, display:'flex', alignItems:'center', justifyContent:'center', gap:4 }}><IcoEye size={12}/> View</button>
-                  <button onClick={()=>setEditProduct(p)} style={{ flex:1, padding:'6px', borderRadius:8, background:'rgba(59,130,246,.12)', border:'1px solid rgba(59,130,246,.25)', color:'#3B82F6', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center' }}><IcoEdit size={12}/></button>
+                  <button onClick={()=>setEditProduct(p)} style={{ flex:1, padding:'6px', borderRadius:8, background:'rgba(93,64,55,.12)', border:'1px solid rgba(93,64,55,.25)', color:'#5D4037', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center' }}><IcoEdit size={12}/></button>
                   <button onClick={()=>handleDelete(p.id,p.name)} style={{ flex:1, padding:'6px', borderRadius:8, background:'rgba(239,68,68,.12)', border:'1px solid rgba(239,68,68,.25)', color:'#EF4444', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center' }}><IcoTrash size={12}/></button>
                 </div>
               </div>
@@ -253,7 +253,7 @@ const ProductsPage = ({ setCart, products, setProducts }) => {
 
       <div style={{ display:'flex', justifyContent:'center', gap:8 }}>
         {Array.from({length:pages},(_,i)=>i+1).map(p=>(
-          <button key={p} onClick={()=>setPage(p)} style={{ width:36, height:36, borderRadius:8, border:page===p?'none':'1px solid #2A2418', cursor:'pointer', fontFamily:"'Outfit',sans-serif", fontWeight:600, fontSize:13, background:page===p?'linear-gradient(135deg,#D4A853,#C8965E)':'#1A1814', color:page===p?'#0F0E0C':'#8A7A60' }}>{p}</button>
+          <button key={p} onClick={()=>setPage(p)} style={{ width:36, height:36, borderRadius:8, border:page===p?'none':'1px solid #E5E7EB', cursor:'pointer', fontFamily:"'Outfit',sans-serif", fontWeight:600, fontSize:13, background:page===p?'linear-gradient(135deg,#8B4513,#A0522D)':'#F3F4F6', color:page===p?'#FFFFFF':'#6B7280' }}>{p}</button>
         ))}
       </div>
 
@@ -263,19 +263,19 @@ const ProductsPage = ({ setCart, products, setProducts }) => {
       <Modal open={!!viewProduct} onClose={()=>setViewProduct(null)} title={viewProduct?.name||''} width={700}>
         {viewProduct && (
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:24 }}>
-            <img src={viewProduct.image} alt={viewProduct.name} style={{ width:'100%', height:240, objectFit:'cover', borderRadius:12 }} onError={e=>{e.target.src='https://placehold.co/400x300/1A1814/D4A853?text=Tile'}} />
+            <img src={viewProduct.image} alt={viewProduct.name} style={{ width:'100%', height:240, objectFit:'cover', borderRadius:12 }} onError={e=>{e.target.src='https://placehold.co/400x300/F9FAFB/D4A853?text=Tile'}} />
             <div>
-              <p style={{ color:'#D4A853', fontSize:12, letterSpacing:'.1em', marginBottom:8 }}>{viewProduct.shop}</p>
-              <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:12 }}><StarRating rating={viewProduct.rating}/><span style={{ fontSize:12, color:'#8A7A60' }}>{viewProduct.reviews} reviews</span></div>
-              <p style={{ color:'#C8B898', fontSize:13, lineHeight:1.7, marginBottom:16 }}>{viewProduct.description}</p>
+              <p style={{ color:'#8B4513', fontSize:12, letterSpacing:'.1em', marginBottom:8 }}>{viewProduct.shop}</p>
+              <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:12 }}><StarRating rating={viewProduct.rating}/><span style={{ fontSize:12, color:'#6B7280' }}>{viewProduct.reviews} reviews</span></div>
+              <p style={{ color:'#4B5563', fontSize:13, lineHeight:1.7, marginBottom:16 }}>{viewProduct.description}</p>
               <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8, marginBottom:16 }}>
                 {[['Size',viewProduct.size],['Material',viewProduct.material],['Category',viewProduct.category],['Stock',viewProduct.inStock?'In Stock':'Out of Stock']].map(([k,v])=>(
-                  <div key={k} style={{ background:'#141210', borderRadius:8, padding:10 }}><p style={{ fontSize:10, color:'#6B5E4A', marginBottom:2 }}>{k}</p><p style={{ fontSize:13, color:'#E8DCC8', fontWeight:500 }}>{v}</p></div>
+                  <div key={k} style={{ background:'#F9FAFB', borderRadius:8, padding:10, border:'1px solid #E5E7EB' }}><p style={{ fontSize:10, color:'#6B7280', marginBottom:2 }}>{k}</p><p style={{ fontSize:13, color:'#111827', fontWeight:500 }}>{v}</p></div>
                 ))}
               </div>
-              <div style={{ background:'rgba(212,168,83,.06)', border:'1px solid rgba(212,168,83,.2)', borderRadius:10, padding:14, marginBottom:16 }}>
-                <div style={{ display:'flex', justifyContent:'space-between', marginBottom:8 }}><span style={{ fontSize:13, color:'#8A7A60' }}>Single Rate</span><span style={{ fontSize:18, fontWeight:700, color:'#D4A853' }}>₹{viewProduct.price}</span></div>
-                <div style={{ display:'flex', justifyContent:'space-between' }}><span style={{ fontSize:13, color:'#8A7A60' }}>Wholesale Rate</span><span style={{ fontSize:18, fontWeight:700, color:'#22C55E' }}>₹{viewProduct.wholesalePrice}</span></div>
+              <div style={{ background:'rgba(139,69,19,.05)', border:'1px solid rgba(139,69,19,.2)', borderRadius:10, padding:14, marginBottom:16 }}>
+                <div style={{ display:'flex', justifyContent:'space-between', marginBottom:8 }}><span style={{ fontSize:13, color:'#6B7280' }}>Single Rate</span><span style={{ fontSize:18, fontWeight:700, color:'#8B4513' }}>₹{viewProduct.price}</span></div>
+                <div style={{ display:'flex', justifyContent:'space-between' }}><span style={{ fontSize:13, color:'#6B7280' }}>Wholesale Rate</span><span style={{ fontSize:18, fontWeight:700, color:'#22C55E' }}>₹{viewProduct.wholesalePrice}</span></div>
               </div>
               <div style={{ display:'flex', gap:8 }}>
                 <button className="btn-gold" onClick={()=>{addToCart(viewProduct,'single');setViewProduct(null)}} style={{ flex:1, padding:'10px', borderRadius:8, fontSize:13 }}>Add Single</button>

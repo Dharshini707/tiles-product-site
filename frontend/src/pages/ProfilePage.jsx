@@ -24,14 +24,14 @@ const IcoRole    = () => <Ico d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4
 
 // ── section header ─────────────────────────────────────────────────────────────
 const SectionHead = ({ icon, title, subtitle }) => (
-  <div style={{ marginBottom: 20, paddingBottom: 14, borderBottom: '1px solid rgba(212,168,83,.15)' }}>
+  <div style={{ marginBottom: 20, paddingBottom: 14, borderBottom: '1px solid #E5E7EB' }}>
     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-      <div style={{ width: 34, height: 34, borderRadius: 8, background: 'rgba(212,168,83,.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#D4A853' }}>
+      <div style={{ width: 34, height: 34, borderRadius: 8, background: 'rgba(139,69,19,.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#8B4513' }}>
         {icon}
       </div>
       <div>
-        <p style={{ fontSize: 14, fontWeight: 600, color: '#E8DCC8' }}>{title}</p>
-        {subtitle && <p style={{ fontSize: 11, color: '#6B5E4A' }}>{subtitle}</p>}
+        <p style={{ fontSize: 14, fontWeight: 600, color: '#111827' }}>{title}</p>
+        {subtitle && <p style={{ fontSize: 11, color: '#6B7280' }}>{subtitle}</p>}
       </div>
     </div>
   </div>
@@ -40,8 +40,8 @@ const SectionHead = ({ icon, title, subtitle }) => (
 // ── field wrapper ─────────────────────────────────────────────────────────────
 const Field = ({ label, icon, children, error }) => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-    <label style={{ fontSize: 11, color: '#8A7A60', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.07em', display: 'flex', alignItems: 'center', gap: 5 }}>
-      {icon && <span style={{ color: '#D4A853', opacity: .7 }}>{icon}</span>} {label}
+    <label style={{ fontSize: 11, color: '#6B7280', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.07em', display: 'flex', alignItems: 'center', gap: 5 }}>
+      {icon && <span style={{ color: '#8B4513', opacity: .7 }}>{icon}</span>} {label}
     </label>
     {children}
     {error && <span style={{ fontSize: 11, color: '#EF4444' }}>{error}</span>}
@@ -53,21 +53,21 @@ const sel = { ...inp, appearance: 'none' }
 
 // ── activity mock ─────────────────────────────────────────────────────────────
 const activityLog = [
-  { action: 'Added product "Marble Luxe"',      time: '2 hours ago',   icon: '📦', color: '#D4A853' },
+  { action: 'Added product "Marble Luxe"',      time: '2 hours ago',   icon: '📦', color: '#8B4513' },
   { action: 'Created sale ORD-1042',            time: '5 hours ago',   icon: '💰', color: '#22C55E' },
-  { action: 'Updated customer Priya Sharma',    time: 'Yesterday',     icon: '👤', color: '#3B82F6' },
+  { action: 'Updated customer Priya Sharma',    time: 'Yesterday',     icon: '👤', color: '#5D4037' },
   { action: 'Generated report for Q4',          time: '2 days ago',    icon: '📊', color: '#A855F7' },
   { action: 'Deleted product "Old Ceramic"',    time: '3 days ago',    icon: '🗑️', color: '#EF4444' },
   { action: 'Login from Chennai, TN',           time: '3 days ago',    icon: '🔐', color: '#F59E0B' },
   { action: 'Password changed',                 time: '1 week ago',    icon: '🔒', color: '#EAB308' },
-  { action: 'Added new customer Arun Kumar',    time: '1 week ago',    icon: '👤', color: '#3B82F6' },
+  { action: 'Added new customer Arun Kumar',    time: '1 week ago',    icon: '👤', color: '#5D4037' },
 ]
 
 // ── stat mini card ─────────────────────────────────────────────────────────────
-const MiniStat = ({ label, value, color = '#D4A853' }) => (
-  <div style={{ background: 'rgba(212,168,83,.06)', border: '1px solid rgba(212,168,83,.12)', borderRadius: 10, padding: '14px 16px', textAlign: 'center' }}>
+const MiniStat = ({ label, value, color = '#8B4513' }) => (
+  <div style={{ background: 'rgba(139,69,19,.05)', border: '1px solid rgba(139,69,19,.15)', borderRadius: 10, padding: '14px 16px', textAlign: 'center' }}>
     <p style={{ fontSize: 22, fontWeight: 700, color, fontFamily: "'Playfair Display',serif", marginBottom: 4 }}>{value}</p>
-    <p style={{ fontSize: 11, color: '#6B5E4A', textTransform: 'uppercase', letterSpacing: '.06em' }}>{label}</p>
+    <p style={{ fontSize: 11, color: '#6B7280', textTransform: 'uppercase', letterSpacing: '.06em' }}>{label}</p>
   </div>
 )
 
@@ -155,7 +155,7 @@ const ProfilePage = ({ user, setUser, sales = [], products = [], customers = [] 
     { id: 'activity',      label: '📋 Activity',      },
   ]
 
-  const roleColor = { Admin: '#D4A853', 'Sales Manager': '#3B82F6', Staff: '#22C55E' }
+  const roleColor = { Admin: '#8B4513', 'Sales Manager': '#5D4037', Staff: '#22C55E' }
 
   return (
     <div style={{ padding: 24, maxWidth: 960, margin: '0 auto' }}>
@@ -168,25 +168,25 @@ const ProfilePage = ({ user, setUser, sales = [], products = [], customers = [] 
       )}
 
       {/* ── Hero Banner ── */}
-      <div className="fade-up" style={{ borderRadius: 20, overflow: 'hidden', marginBottom: 24, background: 'linear-gradient(135deg, #1A1510 0%, #2A1F0E 50%, #1A1510 100%)', border: '1px solid #2A2418', position: 'relative' }}>
+      <div className="fade-up" style={{ borderRadius: 20, overflow: 'hidden', marginBottom: 24, background: '#FFFFFF', border: '1px solid #E5E7EB', position: 'relative' }}>
         {/* Decorative pattern */}
-        <div style={{ position: 'absolute', inset: 0, opacity: .04, backgroundImage: 'repeating-linear-gradient(45deg, #D4A853 0, #D4A853 1px, transparent 0, transparent 50%)', backgroundSize: '24px 24px' }} />
-        <div style={{ position: 'absolute', top: -60, right: -60, width: 240, height: 240, borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,168,83,.12) 0%, transparent 70%)' }} />
+        <div style={{ position: 'absolute', inset: 0, opacity: .04, backgroundImage: 'repeating-linear-gradient(45deg, #8B4513 0, #8B4513 1px, transparent 0, transparent 50%)', backgroundSize: '24px 24px' }} />
+        <div style={{ position: 'absolute', top: -60, right: -60, width: 240, height: 240, borderRadius: '50%', background: 'radial-gradient(circle, rgba(139,69,19,.1) 0%, transparent 70%)' }} />
 
         <div style={{ padding: '32px 32px 28px', position: 'relative', display: 'flex', alignItems: 'flex-end', gap: 28, flexWrap: 'wrap' }}>
           {/* Avatar */}
           <div style={{ position: 'relative', flexShrink: 0 }}>
-            <div style={{ width: 96, height: 96, borderRadius: '50%', border: '3px solid #D4A853', overflow: 'hidden', background: 'linear-gradient(135deg,#D4A853,#C8965E)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 0 4px rgba(212,168,83,.15)' }}>
+            <div style={{ width: 96, height: 96, borderRadius: '50%', border: '3px solid #8B4513', overflow: 'hidden', background: 'linear-gradient(135deg,#8B4513,#A0522D)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 0 4px rgba(139,69,19,.1)' }}>
               {profile.avatar ? (
                 <img src={profile.avatar} alt="avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               ) : (
-                <span style={{ fontSize: 38, fontWeight: 700, color: '#0F0E0C', fontFamily: "'Playfair Display',serif" }}>
+                <span style={{ fontSize: 38, fontWeight: 700, color: '#FFFFFF', fontFamily: "'Playfair Display',serif" }}>
                   {profile.name?.[0]?.toUpperCase() || 'A'}
                 </span>
               )}
             </div>
             <button onClick={() => fileRef.current?.click()}
-              style={{ position: 'absolute', bottom: 0, right: 0, width: 28, height: 28, borderRadius: '50%', background: '#D4A853', border: '2px solid #141210', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#0F0E0C' }}>
+              style={{ position: 'absolute', bottom: 0, right: 0, width: 28, height: 28, borderRadius: '50%', background: '#8B4513', border: '2px solid #FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#FFFFFF' }}>
               <IcoCamera />
             </button>
             <input ref={fileRef} type="file" accept="image/*" onChange={handleAvatarUpload} style={{ display: 'none' }} />
@@ -195,8 +195,8 @@ const ProfilePage = ({ user, setUser, sales = [], products = [], customers = [] 
           {/* Info */}
           <div style={{ flex: 1 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 6 }}>
-              <h2 style={{ fontFamily: "'Playfair Display',serif", fontSize: 26, color: '#E8DCC8', fontWeight: 700 }}>{profile.name}</h2>
-              <span style={{ padding: '3px 12px', borderRadius: 20, fontSize: 11, fontWeight: 700, background: `rgba(212,168,83,.15)`, color: roleColor[profile.role] || '#D4A853', border: `1px solid rgba(212,168,83,.25)` }}>
+              <h2 style={{ fontFamily: "'Playfair Display',serif", fontSize: 26, color: '#111827', fontWeight: 700 }}>{profile.name}</h2>
+              <span style={{ padding: '3px 12px', borderRadius: 20, fontSize: 11, fontWeight: 700, background: `rgba(139,69,19,.1)`, color: roleColor[profile.role] || '#8B4513', border: `1px solid rgba(139,69,19,.2)` }}>
                 {profile.role}
               </span>
             </div>
@@ -206,8 +206,8 @@ const ProfilePage = ({ user, setUser, sales = [], products = [], customers = [] 
                 { icon: <IcoPhone />, val: profile.phone },
                 { icon: <IcoMap />, val: profile.address },
               ].map((item, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#8A7A60', fontSize: 13 }}>
-                  <span style={{ color: '#D4A853', opacity: .7 }}>{item.icon}</span>
+                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#4B5563', fontSize: 13 }}>
+                  <span style={{ color: '#8B4513', opacity: .7 }}>{item.icon}</span>
                   {item.val || '—'}
                 </div>
               ))}
@@ -235,23 +235,23 @@ const ProfilePage = ({ user, setUser, sales = [], products = [], customers = [] 
         </div>
 
         {/* Stat strip */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', borderTop: '1px solid rgba(212,168,83,.1)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', borderTop: '1px solid #E5E7EB' }}>
           {[
             { label: 'Total Sales',    value: sales.length },
             { label: 'Total Revenue',  value: `₹${(totalRevenue/1000).toFixed(1)}K` },
             { label: 'Products',       value: products.length },
             { label: 'Customers',      value: customers.length },
           ].map((s, i) => (
-            <div key={i} style={{ padding: '16px 20px', textAlign: 'center', borderRight: i < 3 ? '1px solid rgba(212,168,83,.08)' : 'none' }}>
-              <p style={{ fontSize: 20, fontWeight: 700, color: '#D4A853', fontFamily: "'Playfair Display',serif", marginBottom: 3 }}>{s.value}</p>
-              <p style={{ fontSize: 11, color: '#6B5E4A', textTransform: 'uppercase', letterSpacing: '.07em' }}>{s.label}</p>
+            <div key={i} style={{ padding: '16px 20px', textAlign: 'center', borderRight: i < 3 ? '1px solid #E5E7EB' : 'none' }}>
+              <p style={{ fontSize: 20, fontWeight: 700, color: '#8B4513', fontFamily: "'Playfair Display',serif", marginBottom: 3 }}>{s.value}</p>
+              <p style={{ fontSize: 11, color: '#6B7280', textTransform: 'uppercase', letterSpacing: '.07em' }}>{s.label}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* ── Tab Bar ── */}
-      <div style={{ display: 'flex', gap: 6, marginBottom: 24, background: '#141210', borderRadius: 12, padding: 5, border: '1px solid #1E1C17' }}>
+      <div style={{ display: 'flex', gap: 6, marginBottom: 24, background: '#F3F4F6', borderRadius: 12, padding: 5, border: '1px solid #E5E7EB' }}>
         {TABS.map(t => (
           <button key={t.id} onClick={() => setTab(t.id)}
             className={`tab-btn ${tab === t.id ? 'active' : ''}`}
@@ -345,17 +345,17 @@ const ProfilePage = ({ user, setUser, sales = [], products = [], customers = [] 
           <div className="stat-card" style={{ borderRadius: 16, padding: 24 }}>
             <SectionHead icon={<IcoCamera />} title="Profile Photo" subtitle="Upload a photo to personalize your account" />
             <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-              <div style={{ width: 80, height: 80, borderRadius: '50%', border: '2px solid #D4A853', overflow: 'hidden', background: 'linear-gradient(135deg,#D4A853,#C8965E)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <div style={{ width: 80, height: 80, borderRadius: '50%', border: '2px solid #8B4513', overflow: 'hidden', background: 'linear-gradient(135deg,#8B4513,#A0522D)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 {profile.avatar
                   ? <img src={profile.avatar} alt="avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  : <span style={{ fontSize: 28, fontWeight: 700, color: '#0F0E0C' }}>{profile.name?.[0]?.toUpperCase()}</span>}
+                  : <span style={{ fontSize: 28, fontWeight: 700, color: '#FFFFFF' }}>{profile.name?.[0]?.toUpperCase()}</span>}
               </div>
               <div style={{ flex: 1 }}>
-                <p style={{ fontSize: 13, color: '#C8B898', marginBottom: 12, lineHeight: 1.6 }}>
+                <p style={{ fontSize: 13, color: '#6B7280', marginBottom: 12, lineHeight: 1.6 }}>
                   Upload a profile photo. JPG, PNG or GIF. Max size 2MB.
                 </p>
                 <div style={{ display: 'flex', gap: 10 }}>
-                  <label style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#D4A853,#C8965E)', color: '#0F0E0C', padding: '9px 18px', borderRadius: 8, cursor: 'pointer', fontWeight: 600, fontSize: 13, fontFamily: "'Outfit',sans-serif" }}>
+                  <label style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#8B4513,#A0522D)', color: '#FFFFFF', padding: '9px 18px', borderRadius: 8, cursor: 'pointer', fontWeight: 600, fontSize: 13, fontFamily: "'Outfit',sans-serif" }}>
                     <IcoCamera /> Upload Photo
                     <input type="file" accept="image/*" onChange={handleAvatarUpload} style={{ display: 'none' }} />
                   </label>
@@ -374,13 +374,13 @@ const ProfilePage = ({ user, setUser, sales = [], products = [], customers = [] 
           <div className="stat-card" style={{ borderRadius: 16, padding: 24 }}>
             <SectionHead icon={<IcoActivity />} title="Your Business Stats" subtitle="Summary of your activity on RoyalEdge Tiles" />
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 14 }}>
-              <MiniStat label="Sales Created"    value={sales.length}                                              color="#D4A853" />
+              <MiniStat label="Sales Created"    value={sales.length}                                              color="#8B4513" />
               <MiniStat label="Total Revenue"    value={`₹${(totalRevenue/1000).toFixed(1)}K`}                    color="#22C55E" />
-              <MiniStat label="Products Managed" value={products.length}                                           color="#3B82F6" />
+              <MiniStat label="Products Managed" value={products.length}                                           color="#5D4037" />
               <MiniStat label="Customers"        value={customers.length}                                          color="#A855F7" />
               <MiniStat label="Completed Orders" value={sales.filter(s=>s.orderStatus==='Completed').length}       color="#22C55E" />
               <MiniStat label="Pending Payments" value={sales.filter(s=>s.paymentStatus==='Pending').length}       color="#EF4444" />
-              <MiniStat label="In-Stock Items"   value={products.filter(p=>p.inStock).length}                      color="#D4A853" />
+              <MiniStat label="In-Stock Items"   value={products.filter(p=>p.inStock).length}                      color="#8B4513" />
               <MiniStat label="Out of Stock"     value={products.filter(p=>!p.inStock).length}                     color="#EAB308" />
             </div>
           </div>
@@ -434,12 +434,12 @@ const ProfilePage = ({ user, setUser, sales = [], products = [], customers = [] 
               {pwForm.newPw && (
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
-                    <span style={{ fontSize: 11, color: '#8A7A60' }}>Password strength</span>
+                    <span style={{ fontSize: 11, color: '#6B7280' }}>Password strength</span>
                     <span style={{ fontSize: 11, fontWeight: 600, color: pwForm.newPw.length < 6 ? '#EF4444' : pwForm.newPw.length < 10 ? '#EAB308' : '#22C55E' }}>
                       {pwForm.newPw.length < 6 ? 'Weak' : pwForm.newPw.length < 10 ? 'Medium' : 'Strong'}
                     </span>
                   </div>
-                  <div style={{ height: 4, background: '#1E1C17', borderRadius: 4, overflow: 'hidden' }}>
+                  <div style={{ height: 4, background: '#E5E7EB', borderRadius: 4, overflow: 'hidden' }}>
                     <div style={{ height: '100%', borderRadius: 4, width: `${Math.min(100, (pwForm.newPw.length / 12) * 100)}%`, background: pwForm.newPw.length < 6 ? '#EF4444' : pwForm.newPw.length < 10 ? '#EAB308' : '#22C55E', transition: 'all .3s' }} />
                   </div>
                 </div>
@@ -462,12 +462,12 @@ const ProfilePage = ({ user, setUser, sales = [], products = [], customers = [] 
                 { label: 'Active Sessions',           status: '1 device',     enabled: true,  action: 'Manage'       },
                 { label: 'Login History',             status: 'Chennai, TN',  enabled: true,  action: 'View History' },
               ].map(item => (
-                <div key={item.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 16px', background: 'rgba(212,168,83,.04)', border: '1px solid rgba(212,168,83,.08)', borderRadius: 10 }}>
+                <div key={item.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 16px', background: 'rgba(139,69,19,.05)', border: '1px solid rgba(139,69,19,.15)', borderRadius: 10 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                     <div style={{ width: 8, height: 8, borderRadius: '50%', background: item.enabled ? '#22C55E' : '#EF4444' }} />
                     <div>
-                      <p style={{ fontSize: 13, color: '#E8DCC8', fontWeight: 500 }}>{item.label}</p>
-                      <p style={{ fontSize: 11, color: '#6B5E4A' }}>{item.status}</p>
+                      <p style={{ fontSize: 13, color: '#111827', fontWeight: 500 }}>{item.label}</p>
+                      <p style={{ fontSize: 11, color: '#6B7280' }}>{item.status}</p>
                     </div>
                   </div>
                   {item.action && (
@@ -479,9 +479,9 @@ const ProfilePage = ({ user, setUser, sales = [], products = [], customers = [] 
           </div>
 
           {/* Danger zone */}
-          <div style={{ background: 'rgba(239,68,68,.04)', border: '1px solid rgba(239,68,68,.2)', borderRadius: 16, padding: 24 }}>
+          <div style={{ background: 'rgba(239,68,68,.05)', border: '1px solid rgba(239,68,68,.2)', borderRadius: 16, padding: 24 }}>
             <h3 style={{ fontFamily: "'Playfair Display',serif", fontSize: 16, color: '#EF4444', marginBottom: 6 }}>Danger Zone</h3>
-            <p style={{ fontSize: 13, color: '#8A7A60', marginBottom: 18 }}>These actions are irreversible. Please be careful.</p>
+            <p style={{ fontSize: 13, color: '#6B7280', marginBottom: 18 }}>These actions are irreversible. Please be careful.</p>
             <div style={{ display: 'flex', gap: 12 }}>
               <button style={{ padding: '10px 20px', borderRadius: 9, background: 'rgba(239,68,68,.12)', border: '1px solid rgba(239,68,68,.3)', color: '#EF4444', cursor: 'pointer', fontSize: 13, fontFamily: "'Outfit',sans-serif", fontWeight: 500 }}>
                 Deactivate Account
@@ -503,7 +503,7 @@ const ProfilePage = ({ user, setUser, sales = [], products = [], customers = [] 
 
           {/* Email notifications */}
           <div style={{ marginBottom: 28 }}>
-            <p style={{ fontSize: 12, color: '#D4A853', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 14 }}>📧 Email Notifications</p>
+            <p style={{ fontSize: 12, color: '#8B4513', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 14 }}>📧 Email Notifications</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
                 { key: 'emailSales',    label: 'New sale created',            desc: 'Get notified when a new sale is added' },
@@ -511,15 +511,15 @@ const ProfilePage = ({ user, setUser, sales = [], products = [], customers = [] 
                 { key: 'emailReports',  label: 'Weekly report summary',        desc: 'Receive automated weekly performance reports' },
                 { key: 'weeklyDigest',  label: 'Weekly business digest',       desc: 'Summary of the week\'s key metrics' },
               ].map(item => (
-                <div key={item.key} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 18px', background: 'rgba(212,168,83,.04)', border: '1px solid rgba(212,168,83,.08)', borderRadius: 10, transition: 'all .2s' }}>
+                <div key={item.key} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 18px', background: 'rgba(139,69,19,.05)', border: '1px solid rgba(139,69,19,.15)', borderRadius: 10, transition: 'all .2s' }}>
                   <div>
-                    <p style={{ fontSize: 13, color: '#E8DCC8', fontWeight: 500, marginBottom: 3 }}>{item.label}</p>
-                    <p style={{ fontSize: 11, color: '#6B5E4A' }}>{item.desc}</p>
+                    <p style={{ fontSize: 13, color: '#111827', fontWeight: 500, marginBottom: 3 }}>{item.label}</p>
+                    <p style={{ fontSize: 11, color: '#6B7280' }}>{item.desc}</p>
                   </div>
                   {/* Toggle */}
                   <div onClick={() => setNotifs(n => ({ ...n, [item.key]: !n[item.key] }))}
-                    style={{ width: 44, height: 24, borderRadius: 12, background: notifs[item.key] ? '#D4A853' : '#2A2418', cursor: 'pointer', position: 'relative', transition: 'background .3s', flexShrink: 0 }}>
-                    <div style={{ position: 'absolute', top: 3, left: notifs[item.key] ? 23 : 3, width: 18, height: 18, borderRadius: '50%', background: notifs[item.key] ? '#0F0E0C' : '#4A3E2C', transition: 'left .3s' }} />
+                    style={{ width: 44, height: 24, borderRadius: 12, background: notifs[item.key] ? '#8B4513' : '#E5E7EB', cursor: 'pointer', position: 'relative', transition: 'background .3s', flexShrink: 0 }}>
+                    <div style={{ position: 'absolute', top: 3, left: notifs[item.key] ? 23 : 3, width: 18, height: 18, borderRadius: '50%', background: notifs[item.key] ? '#FFFFFF' : '#9CA3AF', transition: 'left .3s' }} />
                   </div>
                 </div>
               ))}
@@ -528,27 +528,27 @@ const ProfilePage = ({ user, setUser, sales = [], products = [], customers = [] 
 
           {/* Browser / SMS */}
           <div>
-            <p style={{ fontSize: 12, color: '#D4A853', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 14 }}>📱 Browser & SMS Alerts</p>
+            <p style={{ fontSize: 12, color: '#8B4513', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 14 }}>📱 Browser & SMS Alerts</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
                 { key: 'browserAlerts', label: 'Browser push notifications', desc: 'Show desktop alerts in your browser' },
                 { key: 'smsAlerts',     label: 'SMS alerts',                  desc: 'Receive critical alerts via SMS' },
               ].map(item => (
-                <div key={item.key} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 18px', background: 'rgba(212,168,83,.04)', border: '1px solid rgba(212,168,83,.08)', borderRadius: 10 }}>
+                <div key={item.key} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 18px', background: 'rgba(139,69,19,.05)', border: '1px solid rgba(139,69,19,.15)', borderRadius: 10 }}>
                   <div>
-                    <p style={{ fontSize: 13, color: '#E8DCC8', fontWeight: 500, marginBottom: 3 }}>{item.label}</p>
-                    <p style={{ fontSize: 11, color: '#6B5E4A' }}>{item.desc}</p>
+                    <p style={{ fontSize: 13, color: '#111827', fontWeight: 500, marginBottom: 3 }}>{item.label}</p>
+                    <p style={{ fontSize: 11, color: '#6B7280' }}>{item.desc}</p>
                   </div>
                   <div onClick={() => setNotifs(n => ({ ...n, [item.key]: !n[item.key] }))}
-                    style={{ width: 44, height: 24, borderRadius: 12, background: notifs[item.key] ? '#D4A853' : '#2A2418', cursor: 'pointer', position: 'relative', transition: 'background .3s', flexShrink: 0 }}>
-                    <div style={{ position: 'absolute', top: 3, left: notifs[item.key] ? 23 : 3, width: 18, height: 18, borderRadius: '50%', background: notifs[item.key] ? '#0F0E0C' : '#4A3E2C', transition: 'left .3s' }} />
+                    style={{ width: 44, height: 24, borderRadius: 12, background: notifs[item.key] ? '#8B4513' : '#E5E7EB', cursor: 'pointer', position: 'relative', transition: 'background .3s', flexShrink: 0 }}>
+                    <div style={{ position: 'absolute', top: 3, left: notifs[item.key] ? 23 : 3, width: 18, height: 18, borderRadius: '50%', background: notifs[item.key] ? '#FFFFFF' : '#9CA3AF', transition: 'left .3s' }} />
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div style={{ marginTop: 24, paddingTop: 20, borderTop: '1px solid rgba(42,36,24,.5)', display: 'flex', justifyContent: 'flex-end' }}>
+          <div style={{ marginTop: 24, paddingTop: 20, borderTop: '1px solid #E5E7EB', display: 'flex', justifyContent: 'flex-end' }}>
             <button className="btn-gold" style={{ padding: '10px 24px', borderRadius: 9, fontSize: 14, display: 'flex', alignItems: 'center', gap: 8 }}>
               <IcoSave /> Save Preferences
             </button>
@@ -565,17 +565,17 @@ const ProfilePage = ({ user, setUser, sales = [], products = [], customers = [] 
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {activityLog.map((log, i) => (
-              <div key={i} style={{ display: 'flex', gap: 16, padding: '16px 0', borderBottom: i < activityLog.length - 1 ? '1px solid rgba(42,36,24,.5)' : 'none', alignItems: 'flex-start' }}>
+              <div key={i} style={{ display: 'flex', gap: 16, padding: '16px 0', borderBottom: i < activityLog.length - 1 ? '1px solid #E5E7EB' : 'none', alignItems: 'flex-start' }}>
                 {/* Timeline dot */}
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0, width: 40 }}>
                   <div style={{ width: 36, height: 36, borderRadius: '50%', background: `${log.color}18`, border: `1.5px solid ${log.color}40`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16 }}>
                     {log.icon}
                   </div>
-                  {i < activityLog.length - 1 && <div style={{ width: 1, flex: 1, background: 'rgba(42,36,24,.6)', marginTop: 6, minHeight: 16 }} />}
+                  {i < activityLog.length - 1 && <div style={{ width: 1, flex: 1, background: '#E5E7EB', marginTop: 6, minHeight: 16 }} />}
                 </div>
                 <div style={{ flex: 1, paddingTop: 6 }}>
-                  <p style={{ fontSize: 13, color: '#E8DCC8', fontWeight: 500, marginBottom: 3 }}>{log.action}</p>
-                  <p style={{ fontSize: 11, color: '#6B5E4A' }}>{log.time}</p>
+                  <p style={{ fontSize: 13, color: '#111827', fontWeight: 500, marginBottom: 3 }}>{log.action}</p>
+                  <p style={{ fontSize: 11, color: '#6B7280' }}>{log.time}</p>
                 </div>
               </div>
             ))}

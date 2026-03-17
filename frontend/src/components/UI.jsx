@@ -7,8 +7,8 @@ const Modal = ({ open, onClose, title, children, width = 640 }) => {
         style={{ width:"100%", maxWidth:width, borderRadius:16, padding:32 }}
         onClick={e => e.stopPropagation()}>
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
-          <h2 style={{ fontFamily:"'Playfair Display',serif", fontSize:22, color:"#D4A853" }}>{title}</h2>
-          <button onClick={onClose} style={{ background:"none", border:"none", color:"#8A7A60", cursor:"pointer", fontSize:24 }}>×</button>
+          <h2 style={{ fontFamily:"'Playfair Display',serif", fontSize:22, color:"#8B4513" }}>{title}</h2>
+          <button onClick={onClose} style={{ background:"none", border:"none", color:"#6B7280", cursor:"pointer", fontSize:24 }}>×</button>
         </div>
         {children}
       </div>
@@ -17,16 +17,16 @@ const Modal = ({ open, onClose, title, children, width = 640 }) => {
 }
 
 // ── StatCard ───────────────────────────────────────────────────────────────────
-const StatCard = ({ label, value, sub, icon, color = "#D4A853", delay = 0 }) => (
+const StatCard = ({ label, value, sub, icon, color = "#8B4513", delay = 0 }) => (
   <div className="stat-card card-hover fade-up"
     style={{ borderRadius:16, padding:24, animationDelay:`${delay}ms`, animationFillMode:"both" }}>
     <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
       <div>
-        <p style={{ fontSize:12, color:"#8A7A60", textTransform:"uppercase", letterSpacing:".1em", marginBottom:8 }}>{label}</p>
+        <p style={{ fontSize:12, color:"#6B7280", textTransform:"uppercase", letterSpacing:".1em", marginBottom:8 }}>{label}</p>
         <p style={{ fontSize:28, fontWeight:700, color, fontFamily:"'Playfair Display',serif" }}>{value}</p>
-        {sub && <p style={{ fontSize:12, color:"#6B5E4A", marginTop:4 }}>{sub}</p>}
+        {sub && <p style={{ fontSize:12, color:"#9CA3AF", marginTop:4 }}>{sub}</p>}
       </div>
-      <div style={{ width:48, height:48, borderRadius:12, background:"rgba(212,168,83,.12)", display:"flex", alignItems:"center", justifyContent:"center", color:"#D4A853" }}>
+      <div style={{ width:48, height:48, borderRadius:12, background:"rgba(139,69,19,.1)", display:"flex", alignItems:"center", justifyContent:"center", color:"#8B4513" }}>
         {icon}
       </div>
     </div>

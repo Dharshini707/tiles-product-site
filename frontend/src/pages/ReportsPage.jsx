@@ -15,7 +15,7 @@ const fmtCurrency = (n) => {
 
 const LabeledField = ({ label, children }) => (
   <div>
-    <label style={{ fontSize:11, color:'#8A7A60', display:'block', marginBottom:6, textTransform:'uppercase', letterSpacing:'.06em' }}>{label}</label>
+    <label style={{ fontSize:11, color:'#6B7280', display:'block', marginBottom:6, textTransform:'uppercase', letterSpacing:'.06em' }}>{label}</label>
     {children}
   </div>
 )
@@ -104,11 +104,11 @@ const ReportsPage = ({ sales = [], products = [] }) => {
       {/* Header */}
       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:24 }}>
         <div>
-          <h2 style={{ fontFamily:"'Playfair Display',serif", fontSize:26, color:'#E8DCC8', marginBottom:4 }}>Analytics & Reports</h2>
-          <p style={{ color:'#6B5E4A', fontSize:13 }}>
+          <h2 style={{ fontFamily:"'Playfair Display',serif", fontSize:26, color:'#111827', marginBottom:4 }}>Analytics & Reports</h2>
+          <p style={{ color:'#6B7280', fontSize:13 }}>
             {filteredSales.length} of {sales.length} records
             {(dateFrom||dateTo||filterProduct||filterCustomer||filterPayment||filterStatus) && (
-              <span style={{ color:'#D4A853', marginLeft:8, fontWeight:600 }}>— Filters Active</span>
+              <span style={{ color:'#8B4513', marginLeft:8, fontWeight:600 }}>— Filters Active</span>
             )}
           </p>
         </div>
@@ -127,7 +127,7 @@ const ReportsPage = ({ sales = [], products = [] }) => {
 
       {/* ── Filter Panel ── */}
       <div className="stat-card fade-up" style={{ borderRadius:16, padding:20, marginBottom:24 }}>
-        <p style={{ fontSize:12, color:'#D4A853', fontWeight:600, textTransform:'uppercase', letterSpacing:'.08em', marginBottom:16 }}>
+        <p style={{ fontSize:12, color:'#8B4513', fontWeight:600, textTransform:'uppercase', letterSpacing:'.08em', marginBottom:16 }}>
           🔍 Filter Reports
         </p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(6,1fr)', gap:14, alignItems:'end' }}>
@@ -185,19 +185,19 @@ const ReportsPage = ({ sales = [], products = [] }) => {
             filterPayment  && { label:`Payment: ${filterPayment}`,   clear:()=>setFilterPayment('') },
             filterStatus   && { label:`Status: ${filterStatus}`,     clear:()=>setFilterStatus('') },
           ].filter(Boolean).map((chip,i) => (
-            <span key={i} style={{ display:'inline-flex', alignItems:'center', gap:6, background:'rgba(212,168,83,.12)', border:'1px solid rgba(212,168,83,.3)', color:'#D4A853', padding:'4px 10px', borderRadius:20, fontSize:11, fontWeight:500 }}>
+            <span key={i} style={{ display:'inline-flex', alignItems:'center', gap:6, background:'rgba(139,69,19,.05)', border:'1px solid rgba(139,69,19,.2)', color:'#8B4513', padding:'4px 10px', borderRadius:20, fontSize:11, fontWeight:500 }}>
               {chip.label}
-              <button onClick={chip.clear} style={{ background:'none', border:'none', color:'#D4A853', cursor:'pointer', fontSize:14, lineHeight:1, padding:0 }}>×</button>
+              <button onClick={chip.clear} style={{ background:'none', border:'none', color:'#8B4513', cursor:'pointer', fontSize:14, lineHeight:1, padding:0 }}>×</button>
             </span>
           ))}
           {(dateFrom||dateTo||filterProduct||filterCustomer||filterPayment||filterStatus) && (
             <button onClick={handleClear}
-              style={{ background:'rgba(239,68,68,.1)', border:'1px solid rgba(239,68,68,.25)', color:'#EF4444', padding:'4px 12px', borderRadius:20, fontSize:11, fontWeight:600, cursor:'pointer', fontFamily:"'Outfit',sans-serif" }}>
+              style={{ background:'rgba(239,68,68,.05)', border:'1px solid rgba(239,68,68,.2)', color:'#EF4444', padding:'4px 12px', borderRadius:20, fontSize:11, fontWeight:600, cursor:'pointer', fontFamily:"'Outfit',sans-serif" }}>
               Clear All ×
             </button>
           )}
           {(!dateFrom&&!dateTo&&!filterProduct&&!filterCustomer&&!filterPayment&&!filterStatus) && (
-            <span style={{ fontSize:11, color:'#4A3E2C' }}>No filters applied — showing all {sales.length} records</span>
+            <span style={{ fontSize:11, color:'#6B7280' }}>No filters applied — showing all {sales.length} records</span>
           )}
         </div>
       </div>
@@ -212,9 +212,9 @@ const ReportsPage = ({ sales = [], products = [] }) => {
         ].map((s,i) => (
           <div key={s.label} className="stat-card fade-up"
             style={{ borderRadius:12, padding:20, animationDelay:`${i*80}ms`, animationFillMode:'both' }}>
-            <p style={{ fontSize:11, color:'#8A7A60', marginBottom:6, textTransform:'uppercase', letterSpacing:'.08em' }}>{s.label}</p>
-            <p style={{ fontSize:26, fontWeight:700, color:'#D4A853', fontFamily:"'Playfair Display',serif" }}>{s.value}</p>
-            {s.raw && <p style={{ fontSize:10, color:'#4A3E2C', marginTop:2 }}>{s.raw}</p>}
+            <p style={{ fontSize:11, color:'#6B7280', marginBottom:6, textTransform:'uppercase', letterSpacing:'.08em' }}>{s.label}</p>
+            <p style={{ fontSize:26, fontWeight:700, color:'#8B4513', fontFamily:"'Playfair Display',serif" }}>{s.value}</p>
+            {s.raw && <p style={{ fontSize:10, color:'#9CA3AF', marginTop:2 }}>{s.raw}</p>}
           </div>
         ))}
       </div>
@@ -225,30 +225,30 @@ const ReportsPage = ({ sales = [], products = [] }) => {
         {/* Monthly Revenue Bar */}
         <div className="stat-card" style={{ borderRadius:16, padding:24 }}>
           <div style={{ marginBottom:20 }}>
-            <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:17, color:'#E8DCC8', marginBottom:2 }}>Monthly Sales Revenue</h3>
-            <p style={{ fontSize:11, color:'#6B5E4A' }}>Based on filtered data</p>
+            <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:17, color:'#111827', marginBottom:2 }}>Monthly Sales Revenue</h3>
+            <p style={{ fontSize:11, color:'#6B7280' }}>Based on filtered data</p>
           </div>
           {filteredSales.length > 0 ? (
             <ResponsiveContainer width="100%" height={220}>
               <BarChart data={monthlyChart}>
                 <defs>
                   <linearGradient id="goldGrad4" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#D4A853"/>
-                    <stop offset="100%" stopColor="#C8965E" stopOpacity={0.6}/>
+                    <stop offset="0%" stopColor="#8B4513"/>
+                    <stop offset="100%" stopColor="#A0522D" stopOpacity={0.6}/>
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1E1C17" />
-                <XAxis dataKey="month" stroke="#6B5E4A" fontSize={11} />
-                <YAxis stroke="#6B5E4A" fontSize={11} tickFormatter={v => v>=1000?`${(v/1000).toFixed(0)}K`:v} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                <XAxis dataKey="month" stroke="#6B7280" fontSize={11} />
+                <YAxis stroke="#6B7280" fontSize={11} tickFormatter={v => v>=1000?`${(v/1000).toFixed(0)}K`:v} />
                 <Tooltip
-                  contentStyle={{ background:'#1A1814', border:'1px solid #2A2418', borderRadius:8, color:'#E8DCC8' }}
+                  contentStyle={{ background:'#FFFFFF', border:'1px solid #E5E7EB', borderRadius:8, color:'#111827', boxShadow:'0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
                   formatter={v => [`₹${v.toLocaleString()}`, 'Revenue']}
                 />
                 <Bar dataKey="sales" fill="url(#goldGrad4)" radius={[4,4,0,0]} />
               </BarChart>
             </ResponsiveContainer>
           ) : (
-            <div style={{ display:'flex', alignItems:'center', justifyContent:'center', height:220, color:'#4A3E2C', flexDirection:'column', gap:8 }}>
+            <div style={{ display:'flex', alignItems:'center', justifyContent:'center', height:220, color:'#9CA3AF', flexDirection:'column', gap:8 }}>
               <div style={{ fontSize:32 }}>📉</div>
               <p style={{ fontSize:13 }}>No data matches current filters</p>
             </div>
@@ -258,25 +258,25 @@ const ReportsPage = ({ sales = [], products = [] }) => {
         {/* Top Products Horizontal Bar */}
         <div className="stat-card" style={{ borderRadius:16, padding:24 }}>
           <div style={{ marginBottom:20 }}>
-            <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:17, color:'#E8DCC8', marginBottom:2 }}>Top Selling Products</h3>
-            <p style={{ fontSize:11, color:'#6B5E4A' }}>By units sold in filtered range</p>
+            <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:17, color:'#111827', marginBottom:2 }}>Top Selling Products</h3>
+            <p style={{ fontSize:11, color:'#6B7280' }}>By units sold in filtered range</p>
           </div>
           {topProductsChart.length > 0 ? (
             <ResponsiveContainer width="100%" height={220}>
               <BarChart data={topProductsChart} layout="vertical">
-                <CartesianGrid strokeDasharray="3 3" stroke="#1E1C17" />
-                <XAxis type="number" stroke="#6B5E4A" fontSize={11} />
-                <YAxis dataKey="name" type="category" stroke="#6B5E4A" fontSize={10} width={90}
+                <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                <XAxis type="number" stroke="#6B7280" fontSize={11} />
+                <YAxis dataKey="name" type="category" stroke="#6B7280" fontSize={10} width={90}
                   tickFormatter={v => v.length > 12 ? v.slice(0,12)+'…' : v} />
                 <Tooltip
-                  contentStyle={{ background:'#1A1814', border:'1px solid #2A2418', borderRadius:8, color:'#E8DCC8' }}
+                  contentStyle={{ background:'#FFFFFF', border:'1px solid #E5E7EB', borderRadius:8, color:'#111827', boxShadow:'0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
                   formatter={v => [`${v} units`, 'Sold']}
                 />
-                <Bar dataKey="sales" fill="#D4A853" radius={[0,4,4,0]} />
+                <Bar dataKey="sales" fill="#8B4513" radius={[0,4,4,0]} />
               </BarChart>
             </ResponsiveContainer>
           ) : (
-            <div style={{ display:'flex', alignItems:'center', justifyContent:'center', height:220, color:'#4A3E2C', flexDirection:'column', gap:8 }}>
+            <div style={{ display:'flex', alignItems:'center', justifyContent:'center', height:220, color:'#9CA3AF', flexDirection:'column', gap:8 }}>
               <div style={{ fontSize:32 }}>📦</div>
               <p style={{ fontSize:13 }}>No product data</p>
             </div>
@@ -286,10 +286,10 @@ const ReportsPage = ({ sales = [], products = [] }) => {
 
       {/* ── Sales Report Table ── */}
       <div className="stat-card" style={{ borderRadius:16, overflow:'hidden' }}>
-        <div style={{ padding:'16px 24px', borderBottom:'1px solid #1E1C17', display:'flex', justifyContent:'space-between', alignItems:'center' }}>
-          <div>
-            <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:17, color:'#E8DCC8', marginBottom:2 }}>Sales Report Table</h3>
-            <p style={{ fontSize:11, color:'#6B5E4A' }}>{filteredSales.length} records shown</p>
+        <div style={{ padding:'16px 24px', borderBottom:'1px solid #E5E7EB', display:'flex', justifyContent:'space-between', alignItems:'center' }}>
+          <div style={{ display:'flex', alignItems:'center', gap:12 }}>
+            <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:17, color:'#111827', marginBottom:2 }}>Sales Report Table</h3>
+            <p style={{ fontSize:11, color:'#6B7280' }}>{filteredSales.length} records shown</p>
           </div>
           <div style={{ display:'flex', gap:8 }}>
             <button className="btn-outline" style={{ padding:'6px 14px', borderRadius:8, fontSize:12, display:'flex', alignItems:'center', gap:4 }}>
@@ -314,7 +314,7 @@ const ReportsPage = ({ sales = [], products = [] }) => {
               <tbody>
                 {filteredSales.map(s => (
                   <tr key={s.id}>
-                    <td style={{ color:'#D4A853', fontWeight:600 }}>{s.id}</td>
+                    <td style={{ color:'#8B4513', fontWeight:600 }}>{s.id}</td>
                     <td>{s.customer}</td>
                     <td>{s.product}</td>
                     <td style={{ textAlign:'center' }}>{s.qty}</td>
@@ -324,7 +324,7 @@ const ReportsPage = ({ sales = [], products = [] }) => {
                     <td>{s.paymentMethod}</td>
                     <td>
                       <span style={{ padding:'2px 10px', borderRadius:20, fontSize:11, fontWeight:600,
-                        background: s.orderStatus==='Completed'?'rgba(34,197,94,.15)':s.orderStatus==='Processing'?'rgba(234,179,8,.15)':'rgba(239,68,68,.15)',
+                        background: s.orderStatus==='Completed'?'rgba(34,197,94,.1)':s.orderStatus==='Processing'?'rgba(234,179,8,.1)':'rgba(239,68,68,.1)',
                         color: s.orderStatus==='Completed'?'#22C55E':s.orderStatus==='Processing'?'#EAB308':'#EF4444' }}>
                         {s.orderStatus}
                       </span>
@@ -336,12 +336,12 @@ const ReportsPage = ({ sales = [], products = [] }) => {
             </table>
           </div>
         ) : (
-          <div style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:48, color:'#4A3E2C' }}>
+          <div style={{ display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:48, color:'#9CA3AF' }}>
             <div style={{ fontSize:40, marginBottom:12 }}>🔍</div>
-            <p style={{ fontSize:15, color:'#6B5E4A', marginBottom:6 }}>No records match your filters</p>
-            <p style={{ fontSize:12, color:'#4A3E2C', marginBottom:16 }}>Try adjusting or clearing the filters above</p>
+            <p style={{ fontSize:15, color:'#6B7280', marginBottom:6 }}>No records match your filters</p>
+            <p style={{ fontSize:12, color:'#9CA3AF', marginBottom:16 }}>Try adjusting or clearing the filters above</p>
             <button onClick={handleClear}
-              style={{ background:'rgba(212,168,83,.1)', border:'1px solid rgba(212,168,83,.3)', color:'#D4A853', padding:'8px 20px', borderRadius:8, fontSize:13, cursor:'pointer', fontFamily:"'Outfit',sans-serif", fontWeight:500 }}>
+              style={{ background:'rgba(139,69,19,.05)', border:'1px solid rgba(139,69,19,.2)', color:'#8B4513', padding:'8px 20px', borderRadius:8, fontSize:13, cursor:'pointer', fontFamily:"'Outfit',sans-serif", fontWeight:500 }}>
               Clear All Filters
             </button>
           </div>

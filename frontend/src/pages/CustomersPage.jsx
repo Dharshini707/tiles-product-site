@@ -22,14 +22,14 @@ const CustomersPage = ({ customers, setCustomers }) => {
   return (
     <div style={{ padding:24 }}>
       {toast && (
-        <div className="scale-in" style={{ position:'fixed', top:80, right:24, background:'linear-gradient(135deg,#D4A853,#C8965E)', color:'#0F0E0C', padding:'12px 20px', borderRadius:10, fontWeight:600, fontSize:14, zIndex:9999, boxShadow:'0 8px 24px rgba(212,168,83,.4)' }}>
+        <div className="scale-in" style={{ position:'fixed', top:80, right:24, background:'linear-gradient(135deg,#8B4513,#A0522D)', color:'#0F0E0C', padding:'12px 20px', borderRadius:10, fontWeight:600, fontSize:14, zIndex:9999, boxShadow:'0 8px 24px rgba(139,69,19,.4)' }}>
           {toast}
         </div>
       )}
 
       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:24 }}>
         <div>
-          <h2 style={{ fontFamily:"'Playfair Display',serif", fontSize:26, color:'#E8DCC8', marginBottom:4 }}>Customer Management</h2>
+          <h2 style={{ fontFamily:"'Playfair Display',serif", fontSize:26, color:'#000000', marginBottom:4 }}>Customer Management</h2>
           <p style={{ color:'#6B5E4A', fontSize:13 }}>{filtered.length} of {customers.length} customers</p>
         </div>
         <button className="btn-gold" onClick={()=>setShowAdd(true)} style={{ padding:'10px 20px', borderRadius:10, fontSize:14, display:'flex', alignItems:'center', gap:8 }}>
@@ -45,7 +45,7 @@ const CustomersPage = ({ customers, setCustomers }) => {
         ].map((s,i)=>(
           <div key={s.label} className="stat-card fade-up" style={{ borderRadius:12, padding:20, animationDelay:`${i*80}ms`, animationFillMode:'both' }}>
             <p style={{ fontSize:11, color:'#8A7A60', marginBottom:6, textTransform:'uppercase', letterSpacing:'.08em' }}>{s.label}</p>
-            <p style={{ fontSize:26, fontWeight:700, color:'#D4A853', fontFamily:"'Playfair Display',serif" }}>{s.value}</p>
+            <p style={{ fontSize:26, fontWeight:700, color:'#8B4513', fontFamily:"'Playfair Display',serif" }}>{s.value}</p>
           </div>
         ))}
       </div>
@@ -63,8 +63,8 @@ const CustomersPage = ({ customers, setCustomers }) => {
             <tbody>
               {filtered.map(c=>(
                 <tr key={c.id}>
-                  <td style={{ color:'#D4A853' }}>{c.id}</td>
-                  <td style={{ color:'#E8DCC8', fontWeight:500 }}>{c.name}</td>
+                  <td style={{ color:'#8B4513' }}>{c.id}</td>
+                  <td style={{ color:'#0f0f0f', fontWeight:500 }}>{c.name}</td>
                   <td>{c.phone}</td>
                   <td>{c.email}</td>
                   <td>{c.address}</td>
@@ -72,7 +72,7 @@ const CustomersPage = ({ customers, setCustomers }) => {
                   <td style={{ color:'#22C55E', fontWeight:600 }}>₹{parseFloat(c.totalPurchase||0).toLocaleString()}</td>
                   <td>
                     <div style={{ display:'flex', gap:6 }}>
-                      <button onClick={()=>setEditCustomer(c)} style={{ background:'rgba(59,130,246,.1)', border:'none', borderRadius:6, padding:'5px 8px', cursor:'pointer', color:'#3B82F6' }}><IcoEdit size={14}/></button>
+                      <button onClick={()=>setEditCustomer(c)} style={{ background:'rgba(93,64,55,.1)', border:'none', borderRadius:6, padding:'5px 8px', cursor:'pointer', color:'#5D4037' }}><IcoEdit size={14}/></button>
                       <button onClick={()=>{ if(window.confirm(`Delete ${c.name}?`)){ setCustomers(prev=>prev.filter(x=>x.id!==c.id)); showToast(`${c.name} removed.`) } }} style={{ background:'rgba(239,68,68,.1)', border:'none', borderRadius:6, padding:'5px 8px', cursor:'pointer', color:'#EF4444' }}><IcoTrash size={14}/></button>
                     </div>
                   </td>

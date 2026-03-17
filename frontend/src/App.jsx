@@ -68,7 +68,7 @@ const App = () => {
   }
 
   return (
-    <div style={{ display:'flex', minHeight:'100vh', background:'#0F0E0C' }}>
+    <div style={{ display:'flex', minHeight:'100vh', background:'#FFFFFF' }}>
       <Sidebar page={page} setPage={setPage} onLogout={() => setUser(null)} user={user} />
       <div style={{ marginLeft:240, flex:1, display:'flex', flexDirection:'column', minHeight:'100vh' }}>
         <TopNav page={page} user={user} cartCount={cart.length} setPage={setPage} />

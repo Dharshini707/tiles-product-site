@@ -16,30 +16,30 @@ const AuthPage = ({ onLogin }) => {
     <div className="auth-bg" style={{ position:"relative", overflow:"hidden" }}>
       {/* Decorative bg tiles */}
       <div style={{ position:"absolute", inset:0, overflow:"hidden", pointerEvents:"none" }}>
-        <div style={{ position:"absolute", width:600, height:600, borderRadius:"50%", background:"radial-gradient(circle, rgba(212,168,83,.06) 0%, transparent 70%)", top:"10%", right:"-10%" }} />
+        <div style={{ position:"absolute", width:600, height:600, borderRadius:"50%", background:"radial-gradient(circle, rgba(139,69,19,.06) 0%, transparent 70%)", top:"10%", right:"-10%" }} />
         <div style={{ position:"absolute", width:400, height:400, borderRadius:"50%", background:"radial-gradient(circle, rgba(200,150,94,.04) 0%, transparent 70%)", bottom:"10%", left:"-5%" }} />
         {[...Array(6)].map((_, i) => (
-          <div key={i} style={{ position:"absolute", width:80, height:80, border:"1px solid rgba(212,168,83,.08)", borderRadius:8, left:`${15+i*15}%`, top:`${10+(i%3)*30}%`, transform:`rotate(${i*12}deg)` }} />
+          <div key={i} style={{ position:"absolute", width:80, height:80, border:"1px solid rgba(139,69,19,.08)", borderRadius:8, left:`${15+i*15}%`, top:`${10+(i%3)*30}%`, transform:`rotate(${i*12}deg)` }} />
         ))}
       </div>
 
-      <div style={{ display:"flex", width:"100%", maxWidth:960, borderRadius:24, overflow:"hidden", border:"1px solid #2A2418", boxShadow:"0 40px 80px rgba(0,0,0,.6)", position:"relative", zIndex:1 }}>
+      <div style={{ display:"flex", width:"100%", maxWidth:960, borderRadius:24, overflow:"hidden", border:"1px solid #E5E7EB", boxShadow:"0 40px 80px rgba(0,0,0,.1)", position:"relative", zIndex:1 }}>
         {/* Left */}
-        <div style={{ flex:1, background:"linear-gradient(145deg,#1A1814,#141210)", padding:"48px 40px", display:"flex", flexDirection:"column", justifyContent:"center" }}>
-          <div className="float-anim" style={{ width:56, height:56, background:"linear-gradient(135deg,#D4A853,#C8965E)", borderRadius:14, display:"flex", alignItems:"center", justifyContent:"center", marginBottom:24 }}>
+        <div style={{ flex:1, background:"linear-gradient(145deg,#FFFFFF,#F9FAFB)", padding:"48px 40px", display:"flex", flexDirection:"column", justifyContent:"center" }}>
+          <div className="float-anim" style={{ width:56, height:56, background:"linear-gradient(135deg,#8B4513,#A0522D)", borderRadius:14, display:"flex", alignItems:"center", justifyContent:"center", marginBottom:24 }}>
             <IcoTile size={28} color="#0F0E0C" />
           </div>
           <h1 style={{ fontFamily:"'Playfair Display',serif", fontSize:36, fontWeight:700, marginBottom:8 }}>
-            <span style={{ background:"linear-gradient(135deg,#D4A853,#F0C97A)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>RoyalEdge</span>
-            <br /><span style={{ color:"#E8DCC8" }}>Tiles</span>
+            <span style={{ background:"linear-gradient(135deg,#8B4513,#A0522D)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>RoyalEdge</span>
+            <br /><span style={{ color:"#111827" }}>Tiles</span>
           </h1>
-          <p style={{ color:"#8A7A60", fontSize:14, lineHeight:1.7, marginBottom:32 }}>
+          <p style={{ color:"#6B7280", fontSize:14, lineHeight:1.7, marginBottom:32 }}>
             Premium tile management platform for wholesalers and retailers. Manage products, track sales, and grow your business.
           </p>
           <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
             {["Complete Product Catalog","Sales Analytics & Reports","Customer Management","Invoice Generation"].map(f => (
-              <div key={f} style={{ display:"flex", alignItems:"center", gap:10, color:"#C8B898", fontSize:13 }}>
-                <div style={{ width:6, height:6, borderRadius:"50%", background:"#D4A853", flexShrink:0 }} />
+              <div key={f} style={{ display:"flex", alignItems:"center", gap:10, color:"#374151", fontSize:13 }}>
+                <div style={{ width:6, height:6, borderRadius:"50%", background:"#8B4513", flexShrink:0 }} />
                 {f}
               </div>
             ))}
@@ -48,17 +48,17 @@ const AuthPage = ({ onLogin }) => {
 
         {/* Right */}
         <div className="auth-card" style={{ width:400, padding:"48px 40px", display:"flex", flexDirection:"column", justifyContent:"center" }}>
-          <div style={{ display:"flex", gap:8, marginBottom:32, background:"#0F0E0C", padding:4, borderRadius:10 }}>
+          <div style={{ display:"flex", gap:8, marginBottom:32, background:"#F3F4F6", padding:4, borderRadius:10 }}>
             {["login","signup"].map(m => (
               <button key={m} className={`tab-btn ${mode===m?"active":""}`} style={{ flex:1 }} onClick={() => { setMode(m); setErr("") }}>
                 {m === "login" ? "Sign In" : "Sign Up"}
               </button>
             ))}
           </div>
-          <h2 style={{ fontFamily:"'Playfair Display',serif", fontSize:24, color:"#E8DCC8", marginBottom:6 }}>
+          <h2 style={{ fontFamily:"'Playfair Display',serif", fontSize:24, color:"#111827", marginBottom:6 }}>
             {mode === "login" ? "Welcome back" : "Create account"}
           </h2>
-          <p style={{ fontSize:13, color:"#6B5E4A", marginBottom:28 }}>
+          <p style={{ fontSize:13, color:"#6B7280", marginBottom:28 }}>
             {mode === "login" ? "Sign in to your dashboard" : "Join RoyalEdge Tiles platform"}
           </p>
           <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
@@ -90,7 +90,7 @@ const AuthPage = ({ onLogin }) => {
             </button>
           </div>
           {mode === "login" && (
-            <p style={{ textAlign:"center", marginTop:20, fontSize:12, color:"#6B5E4A" }}>
+            <p style={{ textAlign:"center", marginTop:20, fontSize:12, color:"#6B7280" }}>
               Demo: use any email & password
             </p>
           )}
